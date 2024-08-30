@@ -1,0 +1,30 @@
+events:
+  game_ended: 67
+  game_started: 197
+missing_switches:
+  d5: 2
+  start: 7
+player:
+  score:
+    average: 13305
+    top:
+    - 100000
+    - 54500
+    - 51500
+    - 37500
+    - 35000
+    - 27000
+    - 26500
+    - 25500
+    - 24500
+    - 22500
+    total: 70
+switches:
+  d1: 792
+  d2: 482
+  d3: 400
+  d4: 471
+  d5: 0
+  s_drain: 245
+  s_plunger: 380
+  start: 18

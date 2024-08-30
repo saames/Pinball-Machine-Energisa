@@ -1,0 +1,203 @@
+#config_version=6
+mode:
+  start_events: ball_started
+  priority: 100
+#! switch_start_active
+  
+#! PONTUAÇÃO
+variable_player:
+  d1_active:
+    score: 500
+  d2_active:
+    score: 1000
+  d3_active:
+    score: 1000
+  d4_active:
+    score: 500
+  mode_attract_started:
+    count_attract: 1
+
+#! LAYOUT
+slide_player:
+  mode_base_started:
+    widgets:
+      - type: text
+        text: (score)
+        number_grouping: true
+        min_digits: 4
+        font_size: 170
+        y: 1200
+        x: 540       
+      - type: text
+        text: BOLA (ball)
+        y: 1060
+        x: 540
+        font_size: 80    
+      - type: rectangle
+        width: 1080
+        height: 1920
+        color: 019fc4ff        
+#!---------------------------------
+  d1_active:
+    widgets:
+      - type: text
+        text: '+500'
+        font_size: 100
+        color: FFDF00
+        y: 1270
+        x: 75%
+        animations:
+          show_slide:
+          - property: y
+            value: 1250
+            duration: 0.5s
+          - property: opacity
+            value: 0
+            duration: 0.5s
+            timing: with_previous  
+      - type: text
+        text: (score)
+        number_grouping: true
+        min_digits: 4
+        font_size: 170
+        y: 1200
+        x: 540       
+      - type: text
+        text: BOLA (ball)
+        y: 1060
+        x: 540
+        font_size: 80    
+      - type: rectangle
+        width: 1080
+        height: 1920
+        color: 019fc4ff
+#!---------------------------------
+  d2_active:
+    widgets:
+      - type: text
+        text: '+1000'
+        font_size: 100
+        color: FFDF00
+        y: 1270
+        x: 75%
+        animations:
+          show_slide:
+          - property: y
+            value: 1250
+            duration: 0.5s
+          - property: opacity
+            value: 0
+            duration: 0.5s
+            timing: with_previous  
+      - type: text
+        text: (score)
+        number_grouping: true
+        min_digits: 4
+        font_size: 170
+        y: 1200
+        x: 540       
+      - type: text
+        text: BOLA (ball)
+        y: 1060
+        x: 540
+        font_size: 80    
+      - type: rectangle
+        width: 1080
+        height: 1920
+        color: 019fc4ff
+#!---------------------------------
+  d3_active:
+    widgets:
+      - type: text
+        text: '+1000'
+        font_size: 100
+        color: FFDF00
+        y: 1270
+        x: 75%
+        animations:
+          show_slide:
+          - property: y
+            value: 1250
+            duration: 0.5s
+          - property: opacity
+            value: 0
+            duration: 0.5s
+            timing: with_previous  
+      - type: text
+        text: (score)
+        number_grouping: true
+        min_digits: 4
+        font_size: 170
+        y: 1200
+        x: 540       
+      - type: text
+        text: BOLA (ball)
+        y: 1060
+        x: 540
+        font_size: 80    
+      - type: rectangle
+        width: 1080
+        height: 1920
+        color: 019fc4ff
+#!---------------------------------
+  d4_active:
+    widgets:
+      - type: text
+        text: '+500'
+        font_size: 100
+        color: FFDF00
+        y: 1270
+        x: 75%
+        animations:
+          show_slide:
+          - property: y
+            value: 1250
+            duration: 0.5s
+          - property: opacity
+            value: 0
+            duration: 0.5s
+            timing: with_previous  
+      - type: text
+        text: (score)
+        number_grouping: true
+        min_digits: 4
+        font_size: 170
+        y: 1200
+        x: 540       
+      - type: text
+        text: BOLA (ball)
+        y: 1060
+        x: 540
+        font_size: 80    
+      - type: rectangle
+        width: 1080
+        height: 1920
+        color: 019fc4ff
+        
+sound_player:
+  d1_active:
+    score1:
+      action: play
+  d2_active:
+    score2:
+      action: play
+  d3_active:
+    score2:
+      action: play
+  d4_active:
+    score1:
+      action: play
+  mode_base_started:
+    music_game:
+      action: play
+      loops: -1
+      volume: 0.8
+      fade_in: 1s
+      priority: 50
+      delay: 1.2s
+      
+timed_switches:
+  game_cancel:
+    switch_tags: start
+    time: 5s
+    events_when_active: end_game

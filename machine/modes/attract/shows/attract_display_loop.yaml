@@ -1,0 +1,126 @@
+#show_version=6
+
+- duration: 5
+  slides:
+    last_game_score_slide:
+      widgets:
+      - type: text
+        text: ÚLTIMA PONTUAÇÃO
+        font_size: 90
+        color: black
+        y: 55%
+      - type: text
+        text: (machine|player1_score)
+        number_grouping: true
+        min_digits: 2
+        font_size: 100
+        color: black 
+        y: 50%
+      - type: rectangle
+        width: 1080
+        height: 1920
+        color: ffffff
+      transition:
+        type: move_in
+        duration: 1s
+        direction: left
+        
+- duration: 6s
+  slides:
+    press_start:
+      widgets:
+      - type: Text
+        text: Posicione a Bola no lançador e
+        font_size: 50
+        color: ecececff
+        y: 1050
+      - type: Text
+        text: PRESSIONE START
+#!        color: 
+        font_size: 100
+        animations:
+          pre_show_slide:
+          - property: opacity
+            value: 0
+            duration: 0.7s
+          - property: opacity
+            value: 1
+            duration: 0.7s
+            repeat: true
+      - type: Text
+        text: JOGUE GRÁTIS
+        font_size: 86
+        color: 90ee90
+        y: 200
+        anchor_y: bottom
+      - type: image
+        image: energisa_logo_alfa_branca
+        scale: 0.6
+        y: 80%
+        animations:
+          pre_show_slide:
+#!            - property: rotation
+#!              value: -6
+#!              duration: 0.4s
+#!              repeat: true
+            - property: scale
+              value: 0.65
+              duration: 1.5s
+              repeat: true
+#!              timing: with_previous
+            - property: scale
+              value: 0.6
+              duration: 1.5s
+              repeat: true
+      - type: rectangle
+        width: 1080
+        height: 1920
+        color: 019fc4ff
+      transition:
+        type: move_in
+        duration: 1s
+        direction: top
+
+- duration: 3
+  slides:
+    mission_pinball:
+      widgets:
+      - type: image
+        image: energisa_logo_alfa
+        animations:
+          pre_show_slide:
+#!            - property: rotation
+#!              value: -6
+#!              duration: 0.4s
+#!              repeat: true
+            - property: scale
+              value: 1.15
+              duration: 0.5s
+              repeat: true
+#!              timing: with_previous
+            - property: scale
+              value: 1
+              duration: 0.5s
+              repeat: true
+#!            - property: rotation
+#!              value: 6
+#!              duration: 0.4s
+#!              repeat: true
+            - property: scale
+              value: 1.15
+              duration: 1s
+              repeat: true
+#!              timing: with_previous
+            - property: scale
+              value: 1
+              duration: 1s
+              repeat: true
+              
+      - type: rectangle
+        width: 1080
+        height: 1920
+        color: ff5c00ff
+      transition:
+        type: move_in
+        duration: 1s
+        direction: right

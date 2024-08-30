@@ -1,0 +1,161 @@
+#config_version=6
+
+displays:
+  monitor:
+    width: 1080
+    height: 1920
+
+window:
+  height: 720
+  width: 1280
+  title: Energisa Pinball
+  resizable: true
+  fullscreen: false
+  borderless: false
+  exit_on_escape: true
+  source_display: window
+  
+#! MODOS DA MÁQUINA
+modes:
+  - base
+
+#!MAPEAMENTO DE BOTÕES TECLADO  
+keyboard:
+  debug: yes
+  s:
+    switch: start
+  f9:
+    switch: s_drain
+  f10:
+    switch: s_plunger
+  f5:
+    switch: d1
+  f6:
+    switch: d2
+  f7:
+    switch: d3
+  f8:
+    switch: d4
+  
+#!MAPEAMENTO DE BOTÕES SWITCHES VIRTUAIS
+switches:
+  start:
+    number: start
+    tags: start
+  s_drain:
+    number: 01  
+  s_plunger:
+    number: 02
+  d1:
+    number: d1
+  d2:
+    number: d2
+  d3:
+    number: d3
+  d4:
+    number: d4
+
+#! BOBINA DE EJEÇÃO VIRTUAL
+coils:
+  c_drain_eject:
+    number: 03
+    default_pulse_ms: 20
+    
+#! DISPOSITIVOS DE BOLA
+ball_devices:
+  bd_drain:
+    ball_switches: s_drain
+    eject_coil: c_drain_eject
+    eject_targets: bd_plunger_lane
+    tags: drain, home, trough
+    eject_timeouts: 3s 
+  bd_plunger_lane:
+    ball_switches: s_plunger
+    mechanical_eject: true
+    eject_timeouts: 1s
+    
+playfields:
+  playfield:
+    default_source_device: bd_drain
+    tags: default
+#!virtual_platform_start_active_switches: s_drain
+    
+#!ESTILOS DE FONTES      
+widget_styles:
+  text_default:
+    font_size: 72
+    color: white
+    font_name: upheavtt
+
+#! ASSETS
+assets:
+  sounds:
+    default:
+      load: on_demand
+    music:
+      track: music
+    sfx:
+      track: sfx
+    voice:
+      track: voice
+
+#! SISTEMA DE SOM
+sound_system:
+  tracks:
+    music:
+      type: standard
+      simultaneous_sounds: 1
+      volume: 1.0
+    voice:
+      type: standard
+      simultaneous_sounds: 1
+      volume: 1.0
+    sfx:
+      type: standard
+      simultaneous_sounds: 8
+      volume: 1.0
+
+#! VOLUME PADRÃO
+machine_vars:
+  master_volume:
+    initial_value: 1.0   
+    value_type: float
+    persist: true                         
+
+#! CONFIGURAÇÃO DOS SONS
+sound_player:
+  ball_ending{current_player.ball==3}:
+    finish_game2:
+      action: play
+      delay: 0.5s
+  mode_attract_started:
+    arcadewave:
+      action: play
+      loops: -1
+      volume: 1.0
+      fade_in: 1s
+      delay: 5s
+  mode_attract_stopped:
+    arcadewave:
+      action: stop
+      fade_out: 0.5s
+  mode_attract_will_start:
+    music_game:
+      action: stop
+      fade_out: 0.5s
+  mode_base_started:
+    start_game: 
+      action: play
+      volume: 1.0
+      priority: 100
+      delay: 0.5s
+#!TELAS    
+slides:
+  carregando:
+    widgets:
+      - type: text
+        text: CARREGANDO...
+
+#!CARREGAR TELAS   
+slide_player:
+  init_done: carregando
